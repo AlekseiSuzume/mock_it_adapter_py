@@ -62,7 +62,7 @@ client.create_mock(
     endpoint="/new_mock_endpoint",
     name="example_mock_name_with_matcher",
     status=201,
-    response_body="{\"json_body\": \"example matching 'key to value' mock response body\"}"
+    response_body="{\"Morpheus\": \"Wake up, Neo... The Matrix has you... Follow the white rabbit...\"}"
     matcher=Matcher(
         matcher_type=MatcherType.KEY_TO_VALUE,
         key="name",
@@ -73,6 +73,6 @@ client.create_mock(
 #### Как это работает
 Созданный URL мока: http://localhost:20000/new_mock_endpoint
 
-Если запрос содержит `key="name"` со значением `value="Neo"`, то в ответе мы получим: `"{\"json_body\": \"example matching 'key to value' mock response body\"}"`
+Если запрос содержит `key="name"` со значением `value="Neo"`, то в ответе мы получим: `"{"Morpheus": "Wake up, Neo... The Matrix has you... Follow the white rabbit..."}"`
 
 Если ключ и значение запроса не совпадают, мы получим ответ по умолчанию: `default mock body`
