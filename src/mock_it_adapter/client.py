@@ -1,7 +1,7 @@
 import requests
 
-from src.mock_it_adapter.exceptions import UnauthorizedError, ApiError, BadRequestError
-from src.mock_it_adapter.models import Mock, MatcherType, Matcher
+from .exceptions import UnauthorizedError, ApiError, BadRequestError
+from .models import Mock, MatcherType, Matcher
 
 
 class MockITClient:
@@ -52,4 +52,5 @@ class MockITClient:
             matcher_type=matcher_type
         )
         data = mock.model_dump()
-        return self._make_request("POST", "mocks", data=data)
+        response = self._make_request("POST", "mocks", data=data)
+        return f"New mock created: {response}"
